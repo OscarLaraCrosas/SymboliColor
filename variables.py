@@ -10,7 +10,7 @@ r = e.expand()
 print(r)
 ii = Expression.I
 pi = Expression.PI
-set_license_key("2a14d489-bbd8-5948-8de8-c6fcb28d2a49")
+
 # generic variables
 (a, b, c, d, e, g, h, i, j, k, l, m, mm, n, o, p, q, r, s, t) = Expression.symbols(
     "a",

@@ -1,12 +1,7 @@
-import sys
 import time
 
-import numpy as np
 from symbolica import Expression, Transformer, get_version, set_license_key
 
-set_license_key("2a14d489-bbd8-5948-8de8-c6fcb28d2a49")
-sys.path.append("/home/oscar/Desktop/PhD/BFM-GF/LEFT/Symbolica/")
-from myfunctions import freeq
 from variables import *
 
 # x = Expression.symbol("x")
@@ -446,6 +441,19 @@ def checksunsimplifynonhermitian():
         dif = end - start
         print(i, hey, dif)
     return None
+
+
+def freeq(expr: Expression, tocheck: list) -> bool:
+    """
+    returns True if an expression is free of sd,sunf,sunt,suntr, and returns False otherwise
+    """
+    for i in range(len(tocheck)):
+        dif = (expr - expr.replace_all(tocheck[i], 0)).expand()
+        if dif != 0:
+            return False
+        else:
+            pass
+    return True
 
 
 def checksunsimplifyhermitian():
